@@ -1,0 +1,5 @@
+
+recursive-include supervalu_branding *.css *.js *.json *.txt *.md *.py
+recursive-include supervalu_branding/public *
+include requirements.txt
+include modules.txt

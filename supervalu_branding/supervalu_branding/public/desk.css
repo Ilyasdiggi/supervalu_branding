@@ -1,0 +1,19 @@
+
+/* 1) HIDE the tiny square icon in the page header */
+.page-head .page-title .avatar,
+.page-head .page-title .icon { display: none !important; }
+
+/* -------- Choose ONE of the blocks below -------- */
+
+/* A) HIDE the first breadcrumb ("Frappe HR") completely (default) */
+.breadcrumb .breadcrumb-item:first-child { display: none !important; }
+
+/* B) (Alternative) Replace text instead of hiding it
+.breadcrumb .breadcrumb-item:first-child > a {
+  color: transparent !important; position: relative;
+}
+.breadcrumb .breadcrumb-item:first-child > a::after {
+  content: "SuperValu HR";  /* <- change this label */
+  color: var(--text-color); position: absolute; left: 0; top: 0;
+}
+*/
