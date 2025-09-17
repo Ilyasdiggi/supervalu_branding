@@ -1,19 +1,34 @@
+/* --- SuperValu branding: replace first breadcrumb with "Home" and hide tiny icon --- */
 
-/* 1) HIDE the tiny square icon in the page header */
+/* hide the small square module icon */
 .page-head .page-title .avatar,
-.page-head .page-title .icon { display: none !important; }
+.page-head .page-title .icon {
+  display: none !important;
+}
 
-/* -------- Choose ONE of the blocks below -------- */
-
-/* A) HIDE the first breadcrumb ("Frappe HR") completely (default) */
-.breadcrumb .breadcrumb-item:first-child { display: none !important; }
-
-/* B) (Alternative) Replace text instead of hiding it
+/* show "🏠 Home" instead of the first breadcrumb label (was "Frappe HR") */
 .breadcrumb .breadcrumb-item:first-child > a {
-  color: transparent !important; position: relative;
+  color: transparent !important;   /* hide original text */
+  position: relative;
+  display: inline-block;
+  padding-left: 1.5em;             /* space for the home icon */
+}
+.breadcrumb .breadcrumb-item:first-child > a::before {
+  content: "🏠";
+  position: absolute; left: 0; top: 0; line-height: 1;
 }
 .breadcrumb .breadcrumb-item:first-child > a::after {
-  content: "SuperValu HR";  /* <- change this label */
-  color: var(--text-color); position: absolute; left: 0; top: 0;
+  content: "Home";                 /* <- change this to any text you want */
+  color: var(--text-color);
+  position: absolute; left: 1.5em; top: 0; line-height: 1;
 }
+
+/* If you want this ONLY on HR pages, prefix selectors with body[data-route^="hr"] */
+/*
+body[data-route^="hr"] .page-head .page-title .avatar,
+body[data-route^="hr"] .page-head .page-title .icon { display:none !important; }
+
+body[data-route^="hr"] .breadcrumb .breadcrumb-item:first-child > a { ...same as above... }
+body[data-route^="hr"] .breadcrumb .breadcrumb-item:first-child > a::before { ... }
+body[data-route^="hr"] .breadcrumb .breadcrumb-item:first-child > a::after  { ... }
 */
